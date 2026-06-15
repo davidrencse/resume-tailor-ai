@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JobTailor AI — Options</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>JobTailor AI Settings</h1>
+
+    <section class="card">
+      <h2>AI Provider</h2>
+
+      <div class="field">
+        <label for="groqApiKey">Groq API Key</label>
+        <input type="password" id="groqApiKey" placeholder="gsk_..." autocomplete="off" />
+        <span class="hint">Get free key at <a href="https://console.groq.com" target="_blank">console.groq.com</a></span>
+      </div>
+
+      <div class="field">
+        <label for="modelSelect">Model</label>
+        <select id="modelSelect">
+          <option value="llama-3.3-70b-versatile">llama-3.3-70b-versatile (recommended)</option>
+          <option value="llama-3.1-8b-instant">llama-3.1-8b-instant (faster)</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Personal Info</h2>
+      <div class="field">
+        <label for="fullName">Full Name <span class="optional">(used in cover letter sign-off)</span></label>
+        <input type="text" id="fullName" placeholder="David Ren" />
+      </div>
+      <div class="field">
+        <label for="githubUser">GitHub Username <span class="optional">(scrapes your repos + READMEs to enrich projects)</span></label>
+        <input type="text" id="githubUser" placeholder="davidrencse" />
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>About You <span class="required">*</span></h2>
+      <p class="desc">Paste everything about yourself: name, email, phone, LinkedIn, work history, education, skills, certifications, projects. AI uses this to tailor your resume.</p>
+      <div class="field">
+        <textarea id="aboutText" rows="18" placeholder="My name is David Ren. Email: david.ren@nyu.edu. Phone: +1-778-628-5686.
+LinkedIn: https://linkedin.com/in/david-ren
+GitHub: https://github.com/davidrencse
+
+Education: New York University, Bachelor of Science in Computer Engineering, Minor in Cybersecurity, Sep 2023 – May 2027.
+Courses: Computer Networking, Data Structures and Algorithms, Object Oriented Programming, Digital Logic...
+
+Work:
+NYU Tandon Metaverse VIP, Team Lead – Networking Subgroup, Sep 2024 – Present, Brooklyn NY
+- Explored 360-degree camera API/SDK for immersive streaming on Oculus
+- Implemented VR networking in Unity
+
+NYU Robotic Design Team, Electrical/Embedded Engineer, Apr 2024 – Jun 2025, Brooklyn NY
+- Designed PCBs using KiCad
+- Programmed with Arduino-C and C++
+
+Skills: Python, C++, C, SQL, Node.js, Flask, Linux, AWS IAM EC2 VPC
+
+Certifications:
+Google Cybersecurity Specialization (Google)
+AWS Technical Essentials (Amazon Web Services)"></textarea>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button id="saveBtn" class="btn primary">Save Settings</button>
+      <span id="saveStatus" class="save-status"></span>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

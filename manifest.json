@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "JobTailor AI — Cover Letter & Resume",
+  "description": "Extract job descriptions and generate tailored cover letters and resumes using AI.",
+  "version": "1.0.0",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://api.groq.com/*",
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://api.github.com/*"
+  ],
+  "action": {
+    "default_title": "JobTailor AI",
+    "default_popup": "popup/popup.html"
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Open JobTailor AI"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/extract.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

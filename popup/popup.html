@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>JobTailor AI</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <span class="logo">JobTailor AI</span>
+    <a href="../options/options.html" target="_blank" class="settings-link" title="Settings">⚙</a>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="cover">Cover Letter</button>
+    <button class="tab" data-tab="resume">Resume</button>
+  </div>
+
+  <!-- Cover Letter Tab -->
+  <div id="tab-cover" class="tab-panel active">
+    <div class="row">
+      <button id="extractBtn" class="btn secondary full">Extract Job from Page</button>
+    </div>
+
+    <label for="jobTextCover">Job Description</label>
+    <textarea id="jobTextCover" placeholder="Paste or extract job description..."></textarea>
+
+    <div class="row-inline">
+      <div class="field">
+        <label for="toneSelect">Tone</label>
+        <select id="toneSelect">
+          <option value="professional">Professional</option>
+          <option value="confident">Confident</option>
+          <option value="friendly">Friendly</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="lengthSelect">Length</label>
+        <select id="lengthSelect">
+          <option value="short">Short</option>
+          <option value="standard" selected>Standard</option>
+          <option value="detailed">Detailed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <button id="generateCoverBtn" class="btn primary full">Generate Cover Letter</button>
+    </div>
+
+    <label for="outputTextarea">Cover Letter</label>
+    <textarea id="outputTextarea" placeholder="Generated cover letter will appear here..." readonly></textarea>
+
+    <div class="row">
+      <button id="copyBtn" class="btn secondary" disabled>Copy</button>
+      <button id="regenBtn" class="btn secondary" disabled>Regenerate</button>
+    </div>
+
+    <p id="coverStatus" class="status"></p>
+  </div>
+
+  <!-- Resume Tab -->
+  <div id="tab-resume" class="tab-panel">
+    <p class="hint">Generates a tailored one-page resume using your saved background info + the job description.</p>
+
+    <div class="row">
+      <button id="extractBtnResume" class="btn secondary full">Extract Job from Page</button>
+    </div>
+
+    <label for="jobTextResume">Job Description</label>
+    <textarea id="jobTextResume" placeholder="Paste or extract job description..."></textarea>
+
+    <div id="aboutStatus" class="about-status"></div>
+
+    <div class="row">
+      <button id="generateResumeBtn" class="btn primary full">Generate Resume → New Tab</button>
+    </div>
+
+    <p id="resumeStatus" class="status"></p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resume</title>
+  <style>
+    /* ── Screen chrome ── */
+    body { margin: 0; background: #e8edf2; font-family: sans-serif; }
+
+    #toolbar {
+      background: #1a2532;
+      color: #fff;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    #toolbar h1 { font-size: 15px; font-weight: 600; flex: 1; margin: 0; }
+    #hint { font-size: 12px; color: #aaa; }
+    #printBtn {
+      background: #0a7d68;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 7px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    #printBtn:hover { background: #075f50; }
+
+    #page-wrap {
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #resume-wrap {
+      background: #fff;
+      width: 8.5in;
+      min-height: 11in;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+
+    /* ── Resume body — matches PDF exactly ── */
+    #resume {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 12pt;
+      line-height: 1.15;
+      color: #000;
+      padding: 0.45in 0.55in;
+    }
+
+    /* Header */
+    #basics {
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    #basics h1 {
+      font-size: 20pt;
+      font-weight: bold;
+      margin: 0 0 2px;
+      letter-spacing: 0.3px;
+    }
+    .contact {
+      font-size: 10.5pt;
+      line-height: 1.3;
+    }
+    .contact a { color: #000; text-decoration: underline; }
+
+    /* Section headings */
+    h2 {
+      font-size: 11pt;
+      font-weight: bold;
+      border-bottom: 1px solid #000;
+      margin: 4px 0 1px;
+      padding-bottom: 1px;
+    }
+
+    /* Items */
+    .item { margin-bottom: 1px; }
+
+    .item-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .item-name { font-weight: bold; font-size: 11pt; }
+    .item-date { font-size: 11pt; white-space: nowrap; }
+    .item-subtitle { font-style: italic; font-size: 11pt; }
+
+    /* Coursework sub-heading inside education */
+    .coursework-heading {
+      font-weight: bold;
+      font-size: 11pt;
+      margin-top: 1px;
+    }
+
+    /* Bullet lists */
+    ul {
+      margin: 1px 0 2px;
+      padding-left: 20px;
+    }
+    li {
+      font-size: 11pt;
+      line-height: 1.2;
+      margin-bottom: 1px;
+    }
+    /* Experience/project bullets: EXACTLY one line each — never wrap to a second line.
+       (Skills/coursework/cert bullets are NOT .bullet and may wrap, matching the PDF.) */
+    li.bullet {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    /* Skills / certs: no extra list-style needed (browser default bullet is fine) */
+
+    /* Projects inline heading */
+    .item > div:first-child {
+      font-size: 11pt;
+      line-height: 1.2;
+    }
+
+    a { color: #000; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    @page {
+      size: letter portrait;
+      margin: 0.45in 0.55in;
+    }
+
+    /* ── Print ── */
+    @media print {
+      body { background: none; }
+      #toolbar { display: none; }
+      #page-wrap { padding: 0; }
+      #resume-wrap { box-shadow: none; width: 100%; min-height: unset; }
+      #resume { padding: 0; }
+
+      #resume, li, .item-name, .item-date, .item-subtitle, h2, .contact, .coursework-heading {
+        font-size: 11pt;
+      }
+      #basics h1 { font-size: 18pt; }
+      .contact { font-size: 10.5pt; }
+    }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <h1>Resume Preview</h1>
+    <span id="hint">Ctrl+P → Save as PDF</span>
+    <button id="printBtn">Print / Save PDF</button>
+  </div>
+  <div id="page-wrap">
+    <div id="resume-wrap">
+      <div id="resume">
+        <p style="padding:20px;color:#888;">Loading...</p>
+      </div>
+    </div>
+  </div>
+  <script src="resume.js"></script>
+</body>
+</html>
