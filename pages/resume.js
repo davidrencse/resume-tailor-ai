@@ -129,9 +129,13 @@ function renderResume(r) {
         ? `<a href="${esc(p.url)}">${esc(p.name)}</a>`
         : esc(p.name);
       const kwHtml = keywords.length ? ` | <em>${keywords.map(esc).join(", ")}</em>` : "";
+      const loc = p.location && typeof p.location === "string" ? p.location : "";
       return `
 <div class="item">
-  <div><strong>${nameHtml}</strong>${kwHtml}</div>
+  <div class="item-title-row">
+    <span><strong>${nameHtml}</strong>${kwHtml}</span>
+    ${loc ? `<span class="item-date">${esc(loc)}</span>` : ""}
+  </div>
   ${bullets.length ? `<ul>${bullets.map(h => `<li class="bullet">${esc(h)}</li>`).join("")}</ul>` : ""}
 </div>`;
     }).join("");

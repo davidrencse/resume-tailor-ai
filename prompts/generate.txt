@@ -77,7 +77,9 @@ STEP 4: PROJECTS
 - ALWAYS output exactly 3 projects. Never fewer than 3. Pick the 3 most job-relevant from the background AND the scraped GitHub repos.
 - If the background text has fewer than 3 projects, FILL the rest from the SUPPLEMENTARY GITHUB REPOS section below.
 - Exactly 3 bullets per project, each a long dense full-line sentence tied to the job's skills.
-- Copy name, url, keywords exactly from the source.
+- keywords: 3-5 REAL technologies used (e.g. "Python", "Scapy", "React", "PostgreSQL"). NEVER output the literal word "Tech" or "Technology" — if the stack is unstated, infer a realistic one from the project description.
+- location: give each project a short location like "Brooklyn, NY", "Remote", or "New York, NY". If unknown, infer a plausible one (use the candidate's city). Never leave it blank.
+- Copy name and url exactly from the source.
 
 STEP 5: SKILLS
 - Include ALL skill categories from the background text (Languages, Backend, Systems, Hardware, Cloud, etc.). Job-relevant categories first. Do not drop categories — the page must stay full.
@@ -117,5 +119,5 @@ OUTPUT JSON SCHEMA — use these exact key names, in THIS order, no others:
   "skills": [{ "name": "Languages", "keywords": ["Python", "C++"] }],
   "certificates": [{ "name": "", "issuer": "" }],
   "work": [{ "name": "", "position": "", "location": "", "startDate": "YYYY-MM", "endDate": "", "highlights": ["bullet"] }],
-  "projects": [{ "name": "", "url": "", "keywords": ["Tech"], "highlights": ["bullet"] }]
+  "projects": [{ "name": "", "url": "", "location": "Brooklyn, NY", "keywords": ["Python", "Flask", "React"], "highlights": ["bullet"] }]
 }

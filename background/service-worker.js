@@ -154,8 +154,10 @@ function githubRepoToProject(repo) {
   while (highlights.length < 3) {
     highlights.push(`Built ${repo.name}${repo.language ? ` in ${repo.language}` : ""}, a project on GitHub demonstrating practical engineering skills.`);
   }
-  const keywords = (repo.topics && repo.topics.length ? repo.topics : [repo.language]).filter(Boolean).slice(0, 5);
-  return { name: repo.name, url: repo.url, keywords, highlights: highlights.slice(0, 3) };
+  const keywords = (repo.topics && repo.topics.length ? repo.topics : [repo.language])
+    .filter(Boolean).filter(k => !/^tech(nology)?$/i.test(k)).slice(0, 5);
+  if (!keywords.length && repo.language) keywords.push(repo.language);
+  return { name: repo.name, url: repo.url, location: "Remote", keywords, highlights: highlights.slice(0, 3) };
 }
 
 // Parse certificates straight from the About You text as a fallback for when the model
